@@ -1,0 +1,45 @@
+
+
+body{
+    background-color: navajowhite;
+}
+
+.top-box h1{
+    color: #402422;
+    font-family: 'Cinzel', bold;
+    font-size: 100px;
+}
+
+.top-box p{
+    color: #0D0D0D;
+    font-family: 'Signika', sans-serif;
+    font-size: 48px;
+    line-height: 1.2em;
+}
+
+.top-box{
+    padding: 9%;
+    min-height: 200px;
+    min-width: 200px;
+}
+
+.socials{
+    padding: 3%;
+    padding-left: 3em;
+    position: relative;
+    bottom: 0px;
+    left: center;
+}
+
+a {
+    color:black;
+    text-decoration: none;
+    padding-left: 3em;
+}
+
+a:hover 
+{
+     color:#402422; 
+     text-decoration:none; 
+     cursor:pointer;  
+}
