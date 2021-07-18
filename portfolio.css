@@ -28,6 +28,7 @@ body{
     line-height: 1.2em;
     padding-left: 10%;
     padding-right: 30%;
+    
 }
 
 
@@ -60,7 +61,6 @@ a:hover
 
 .section1{
     background-color: white;
-    
 
 }
 
@@ -76,39 +76,30 @@ a:hover
     color: black;
     padding-bottom: 10%;
     text-decoration: underline;
+    font-size: 40px;
 }
 
 
 
 
 @media only screen and (width: 768px) {
-
-    body{
-        background-color: navajowhite;
-        display: flex;
-    }
     
     .flex-container h1{
         color: #402422;
         font-family: 'Cinzel', bold;
-        font-size: 100px;
+        font-size: 80px;
         padding-left: 10%;
     }
     
     .flex-container p{
         color: #0D0D0D;
         font-family: 'Signika', sans-serif;
-        font-size: 40px;
+        font-size: 30px;
         line-height: 1.2em;
         padding-left: 10%;
         padding-right: 30%;
     }
     
-    .flex-container{
-        padding-top:5%;
-        min-height: 200px;
-        min-width: 200px;
-    }
     
     .socials{
         display: flex;
@@ -116,7 +107,8 @@ a:hover
         flex-direction: row;
         float: right;
         padding-top: 10%;
-        padding-right: 22%;
+        margin-right: 26%;
+        font-size: 13px;
     }
     
     a {
@@ -131,46 +123,48 @@ a:hover
          text-decoration:none; 
          cursor:pointer;  
     }
+
+    .section1 h2{
+        text-align: center;
+        color: black;
+        padding-bottom: 10%;
+        text-decoration: underline;
+        font-size: 30px;
+    }
+
+    .section1{
+        margin-top: 25%;
     
+    }
 }
 
 @media only screen and (max-width: 480px) {
 
-    body{
-        background-color: navajowhite;
-        display: flex;
-    }
-    
     .flex-container h1{
         color: #402422;
         font-family: 'Cinzel', bold;
-        font-size: 60px;
+        font-size: 30px;
         padding-left: 10%;
     }
     
     .flex-container p{
         color: #0D0D0D;
         font-family: 'Signika', sans-serif;
-        font-size: 25px;
+        font-size: 20px;
         line-height: 1.2em;
         padding-left: 10%;
         padding-right: 30%;
     }
     
-    .flex-container{
-        padding-top:5%;
-        min-height: 100px;
-        min-width: 100px;
-    }
     
     .socials{
         display: flex;
         position: static;
         flex-direction: row;
         float: right;
-        padding-top: 10%;
-        padding-right: 17%;
-        font-size:10px;
+
+        font-size: 5px;
+        margin: auto;
     }
     
     a {
@@ -186,5 +180,39 @@ a:hover
          cursor:pointer;  
     }
 
+    .section1 h2{
+        text-align: center;
+        color: black;
+        padding-bottom: 10%;
+        text-decoration: underline;
+        font-size: 20px;
+    }
+
+    .section1{
+        margin-top: 20%;
     
+    }
+
+    .socials{
+        display: flex;
+        position: static;
+        flex-direction: row;
+        float: right;
+        padding-right: 17%;
+        font-size: 9px;
+
+    }
+    
+    a {
+        color:black;
+        text-decoration: none;
+        padding-left: 3em;
+    }
+    
+    a:hover 
+    {
+         color:#402422; 
+         text-decoration:none; 
+         cursor:pointer;  
+    }
 }
