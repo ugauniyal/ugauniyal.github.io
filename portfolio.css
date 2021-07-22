@@ -1,30 +1,40 @@
+* {
+    box-sizing: border-box;
+  }
+
 html{
     scroll-behavior: smooth;
 }
 
 body{
-    background-color: white;
+    background-color: rgb(245, 236, 224);
 
 }
 
+#name{
+    text-decoration-line: underline;
+}
+
 .flex-container{
+    background-color: navajowhite;
+    border-bottom: 6px solid #402422;
     min-height: 200px;
     min-width: 200px;
-    background-color: navajowhite;
+    height: 100vh;
 }
 
 .flex-container h1{
     color: #402422;
     padding-top: 11%;
     font-family: 'Cinzel', bold;
-    font-size: 100px;
+    font-size: 80px;
     padding-left: 10%;
 }
 
 .flex-container p{
     color: #0D0D0D;
     font-family: 'Signika', sans-serif;
-    font-size: 48px;
+    font-size: 30px;
     line-height: 1.2em;
     padding-left: 10%;
     padding-right: 30%;
@@ -35,12 +45,44 @@ body{
 
 .socials{
     display: flex;
-    position: fixed;
+    visibility: hidden;
+    position: absolute;
+    opacity: 0;
     flex-direction: column;
     right: 3%;
     top:27%;
     margin: auto;
+    font-size: 13px;
+    transition: 0.5s ease;
 }
+
+.social-btn{
+    background-color: #402422;
+    border: none;
+    margin-left: 10%;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: white;
+    padding: 14px 40px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    transition-duration: 0.4s;
+}
+  
+.social-btn:hover {
+    background-color: #402422d7;
+    cursor: pointer;
+  }
+
+
+.socials-open .socials{
+    visibility: visible;
+    opacity: 100%;
+    transition: 0.5s ease;
+    
+}
+
 
 a {
     color:black;
@@ -56,28 +98,94 @@ a:hover
      transition: 0.4s;
 }
 
-
-/* Section 1 */
-
-.section1{
-    background-color: white;
-
+.carousel{
+    
+    padding-top: 2%;
+    height: 600px;
+    width: 60%;
+    margin: 0 auto;
 }
 
-.section1 img{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
+.imgs {
+    max-width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.section1 h2{
+.carousel_text{
     text-align: center;
-    color: black;
-    padding-bottom: 10%;
-    text-decoration: underline;
-    font-size: 40px;
+    width: 100%;
 }
+
+.carousel_track-container{
+    position: relative;
+    background-color: rgb(245, 236, 224);
+    height: 100%;
+    overflow: hidden;
+}
+
+.carousel_track{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: relative;
+    height: 100%;
+    transition: transform 250ms ease-in;
+}
+
+.carousel_slide{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.carousel_button{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 0;
+    cursor: pointer;
+}
+
+.carousel_button-left{
+    left: -70px;
+    background-color: transparent;
+}
+
+.carousel_button-right{
+    right: -70px;
+    background-color: transparent;
+}
+
+button img{
+    width: 50px;
+    height: 50px;
+}
+
+.carousel_nav{
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.carousel_indicator{
+    border: 0;
+    border-radius: 50%;
+    width: 11px;
+    height: 11px;
+    background-color: rgba(0,0,0,.3);
+    margin: 0 8px;
+    cursor: pointer;
+}
+
+.carousel_indicator.current-slide{
+    background-color: rgba(0,0,0,.75);
+}
+
+
+.is-hidden {display: none;}
 
 
 
@@ -102,6 +210,8 @@ a:hover
     
     
     .socials{
+        visibility: visible;
+        opacity: 100%;
         display: flex;
         position: static;
         flex-direction: row;
@@ -124,17 +234,8 @@ a:hover
          cursor:pointer;  
     }
 
-    .section1 h2{
-        text-align: center;
-        color: black;
-        padding-bottom: 10%;
-        text-decoration: underline;
-        font-size: 30px;
-    }
-
-    .section1{
-        margin-top: 25%;
-    
+    button{
+        visibility: hidden;
     }
 }
 
@@ -159,11 +260,13 @@ a:hover
     
     .socials{
         display: flex;
+        opacity: 100%;
         position: static;
         flex-direction: row;
         float: right;
-
-        font-size: 5px;
+        visibility: visible;
+        padding-right: 20.5%;
+        font-size: 9px;
         margin: auto;
     }
     
@@ -179,29 +282,6 @@ a:hover
          text-decoration:none; 
          cursor:pointer;  
     }
-
-    .section1 h2{
-        text-align: center;
-        color: black;
-        padding-bottom: 10%;
-        text-decoration: underline;
-        font-size: 20px;
-    }
-
-    .section1{
-        margin-top: 20%;
-    
-    }
-
-    .socials{
-        display: flex;
-        position: static;
-        flex-direction: row;
-        float: right;
-        padding-right: 17%;
-        font-size: 9px;
-
-    }
     
     a {
         color:black;
@@ -214,5 +294,9 @@ a:hover
          color:#402422; 
          text-decoration:none; 
          cursor:pointer;  
+    }
+
+    button{
+        visibility: hidden;
     }
 }
