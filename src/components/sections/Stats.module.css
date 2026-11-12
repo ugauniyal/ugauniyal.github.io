@@ -1,0 +1,58 @@
+.band {
+  border-block: 1px solid var(--color-border);
+}
+
+.stats {
+  display: grid;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-block: 28px;
+}
+
+.stat + .stat {
+  border-top: 1px solid var(--color-border);
+}
+
+.icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  color: var(--color-primary);
+  background-color: var(--color-primary-soft);
+}
+
+/* Visually show the value above its label while keeping dt before dd in the DOM. */
+.text {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 6px;
+}
+
+.value {
+  line-height: 1;
+}
+
+@media (min-width: 768px) {
+  .stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .stat {
+    justify-content: center;
+    padding-block: 40px;
+  }
+
+  .stat + .stat {
+    border-top: none;
+    border-left: 1px solid var(--color-border);
+  }
+}

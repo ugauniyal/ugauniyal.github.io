@@ -1,0 +1,129 @@
+.card {
+  /* Lets the card adapt its layout to its own width rather than the viewport. */
+  container-type: inline-size;
+  display: flex;
+  height: 100%;
+  padding: clamp(20px, 3vw, 28px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface-card);
+  transition:
+    border-color var(--duration-base) ease,
+    box-shadow var(--duration-base) ease,
+    transform var(--duration-base) var(--ease-out);
+}
+
+.layout {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg);
+}
+
+.image {
+  object-fit: cover;
+  object-position: top center;
+  transition:
+    opacity var(--duration-base) ease,
+    filter var(--duration-base) ease,
+    transform 0.6s var(--ease-out);
+}
+
+.badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 50%;
+  background-color: rgb(26 26 26 / 0.85);
+  color: var(--color-text-bright);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.title {
+  transition: color var(--duration-base) ease;
+}
+
+.description {
+  flex: 1;
+  color: var(--color-text-muted);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* Wide cards (e.g. a lone card spanning a full grid row) sit side by side. */
+@container (min-width: 600px) {
+  .layout {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 32px;
+  }
+
+  .media {
+    flex: 0 0 50%;
+    aspect-ratio: auto;
+    min-height: 260px;
+  }
+
+  .body {
+    justify-content: center;
+  }
+
+  .description {
+    flex: 0;
+  }
+}
+
+/*
+ * The muted, grayscale treatment is only applied on devices that can hover,
+ * otherwise touch users would never see the screenshots in full color.
+ */
+@media (hover: hover) and (pointer: fine) {
+  .image {
+    opacity: 0.6;
+    filter: grayscale(1);
+  }
+
+  .card:hover {
+    border-color: var(--color-border-hover);
+    box-shadow: 0 20px 40px -24px rgb(255 228 89 / 0.18);
+    transform: translateY(-4px);
+  }
+
+  .card:hover .image {
+    opacity: 1;
+    filter: grayscale(0);
+    transform: scale(1.03);
+  }
+
+  .card:hover .title {
+    color: var(--color-primary);
+  }
+}

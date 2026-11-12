@@ -1,0 +1,116 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid var(--color-border);
+  background-color: rgb(26 26 26 / 0.82);
+  -webkit-backdrop-filter: saturate(140%) blur(12px);
+  backdrop-filter: saturate(140%) blur(12px);
+}
+
+.nav {
+  position: relative;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: var(--nav-height);
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-text-bright);
+  text-decoration: none;
+}
+
+.logoDot {
+  color: var(--color-primary);
+}
+
+.desktopLinks {
+  display: none;
+  align-items: center;
+  gap: 36px;
+}
+
+/* Scoped under .bar so it out-specifies the global .btn-primary display rule. */
+.bar .desktopCta {
+  display: none;
+}
+
+.menuToggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-right: -10px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--color-text-bright);
+  cursor: pointer;
+}
+
+.mobileMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-bg-elevated);
+  box-shadow: 0 24px 48px -24px rgb(0 0 0 / 0.6);
+  animation: menu-in var(--duration-base) var(--ease-out);
+}
+
+.mobileLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-block: 16px 24px;
+}
+
+.mobileLinks :global(.btn-ghost) {
+  width: 100%;
+  padding-block: 12px;
+  font-size: 0.875rem;
+}
+
+.mobileCta {
+  width: 100%;
+  margin-top: 12px;
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 768px) {
+  .desktopLinks {
+    display: flex;
+  }
+
+  .bar .desktopCta {
+    display: inline-flex;
+    min-height: 42px;
+    padding: 10px 22px;
+  }
+
+  .menuToggle,
+  .mobileMenu {
+    display: none;
+  }
+}

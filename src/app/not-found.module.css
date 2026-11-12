@@ -1,0 +1,13 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 24px;
+  min-height: 60vh;
+  padding-block: 80px;
+}
+
+.code {
+  margin-bottom: -8px;
+}
