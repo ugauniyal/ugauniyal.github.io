@@ -1,32 +1,73 @@
-# React + TypeScript + Vite
+# ugauniyal.github.io
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Personal portfolio of **Utkarsh Gauniyal**, a software engineer focused on backend systems, mobile apps, and cloud infrastructure.
 
-Currently, two official plugins are available:
+Live at **https://ugauniyal.github.io**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech stack
 
-## React Compiler
+- [Next.js 16](https://nextjs.org) (App Router) with **static export** for GitHub Pages
+- **TypeScript** (strict)
+- **CSS Modules** plus global design tokens (`src/app/globals.css`)
+- [`next/font`](https://nextjs.org/docs/app/api-reference/components/font) for self-hosted Google Fonts (Hanken Grotesk, Inter, JetBrains Mono)
+- [Lucide](https://lucide.dev) SVG icons
+- ESLint (`eslint-config-next`) and Prettier
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Getting started
 
-## Expanding the Oxlint configuration
+Requires Node.js **20.9+** (22 LTS recommended, see `.nvmrc`).
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev        # http://localhost:3000
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Scripts
+
+| Script              | Description                                             |
+| ------------------- | ------------------------------------------------------- |
+| `npm run dev`       | Start the development server                            |
+| `npm run build`     | Build the static site into `out/`                       |
+| `npm run preview`   | Serve the built `out/` folder locally                   |
+| `npm run lint`      | Lint with ESLint (`lint:fix` to auto-fix)               |
+| `npm run typecheck` | Type-check with `tsc`                                   |
+| `npm run format`    | Format with Prettier (`format:check` to verify only)    |
+| `npm run check`     | Typecheck, lint, format check, and build (what CI runs) |
+
+## Project structure
+
+```
+src/
+├── app/                   # Routes, layout, metadata (App Router)
+│   ├── layout.tsx         # Root layout: fonts, SEO metadata, navbar, footer
+│   ├── page.tsx           # Home page
+│   ├── projects/          # /projects page
+│   ├── not-found.tsx      # 404 page
+│   ├── sitemap.ts         # /sitemap.xml
+│   ├── robots.ts          # /robots.txt
+│   ├── icon.svg           # Favicon
+│   └── opengraph-image.png
+├── assets/projects/       # Optimized project screenshots (WebP)
+├── components/
+│   ├── layout/            # Navbar (client component) and Footer
+│   ├── sections/          # Home page sections
+│   └── ui/                # Reusable building blocks (cards, headings, grids)
+├── data/                  # All site content, typed (edit these to update the site)
+└── hooks/                 # Client-side hooks (scroll-spy)
+```
+
+### Updating content
+
+All copy lives in `src/data/`:
+
+- `site.ts`: name, email, social links, navigation
+- `projects.ts`: projects (set `featured: true` to show one on the home page)
+- `reviews.ts`, `services.ts`, `profile.ts`: testimonials, services, stats, and the hero code snippet
+
+To add a project screenshot, put a compressed `.webp` (around 1200px wide) in `src/assets/projects/` and import it in `projects.ts`.
+
+## Deployment
+
+Pushing to `main` runs [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml), which type-checks, lints, checks formatting, builds, and deploys `out/` to GitHub Pages. Pull requests run the same checks without deploying.
+
+> In the repository settings, **Pages → Build and deployment → Source** must be set to **GitHub Actions**.

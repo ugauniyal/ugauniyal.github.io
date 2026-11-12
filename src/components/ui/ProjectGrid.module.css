@@ -1,0 +1,41 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(20px, 3vw, 32px);
+}
+
+.item {
+  display: flex;
+}
+
+.item > * {
+  flex: 1;
+}
+
+/*
+ * A lone item on the last row spans the full width instead of sitting at half
+ * width; ProjectCard switches to a horizontal layout when it gets that wide.
+ */
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .item:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .item:last-child:nth-child(odd) {
+    grid-column: auto;
+  }
+
+  .item:last-child:nth-child(3n + 1) {
+    grid-column: 1 / -1;
+  }
+}
